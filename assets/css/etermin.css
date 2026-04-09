@@ -1,17 +1,20 @@
-/* =========================
-   1. RESET
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Beispiel: Schriftfarbe, Größe und Box-Shadow */
+.service {
+  color: #333333;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-img {
-  width: 100%;
-  height: auto;
+.price {
+  color: #ff9900;
+  font-weight: bold;
 }
 
-#473121 {
-    color: red;
+.imgRBToggle svg path.c1Text {
+  stroke: #FFD700; /* Gelbe Farbe für Check */
+}
+
+.divImgService {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
