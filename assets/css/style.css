@@ -1,0 +1,641 @@
+/* =========================
+   1. RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+
+/* =========================
+   2. FONTS
+========================= */
+@font-face {
+  font-family: 'motley';
+  src: url('/assets/fonts/motley-forces.woff2') format('woff2');
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fließtext-Font */
+@font-face {
+  font-family: 'cabin';
+  src: url('/assets/fonts/cabin-regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   3. VARIABLEN und BASE
+========================= */
+:root {
+
+    /* Schatten */
+  --inner-shadow-light: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-light: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  /* Normal Text -> im body */
+  --font-main: 'cabin', sans-serif;
+
+  /* H1 Hauptüberschrift */
+  --h1-font-family: 'motley', sans-serif;
+  --h1-font-size: 2.7rem;
+  --h1-font-weight: 900;
+  --h1-line-height: 1.2;
+  --h1-color: #1E1E1E;
+  --h1-margin-top: 20px;
+  --h1-margin-bottom: 0.8rem;
+  --h1-text-transform: uppercase;
+
+  /* H2 Sekundäre Überschrift */
+  --h2-font-family: 'motley', sans-serif;
+  --h2-font-size: 2rem;
+  --h2-font-weight: 700;
+  --h2-line-height: 1.3;
+  --h2-color: #1E1E1E;
+  --h2-margin-top: 1.2rem;
+  --h2-margin-bottom: 0.6rem;
+  --h2-text-transform: uppercase;
+  --h2-text-align: center;
+
+  /* H3 Unterüberschrift / Abschnittstitel */
+  --h3-font-family: 'cabin', sans-serif;
+  --h3-font-size: 1.1rem;
+  --h3-font-weight: 600;
+  --h3-line-height: 1.4;
+  --h3-color: #1E1E1E;
+  --h3-margin-top: 1rem;
+  --h3-margin-bottom: 0.5rem;
+  --h3-text-transform: none;
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  background: white;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+p {
+  max-width: 90ch;
+}
+
+/* =========================
+   Überschriften
+========================= */
+
+h1 {
+  font-family: var(--h1-font-family);
+  font-size: var(--h1-font-size);
+  font-weight: var(--h1-font-weight);
+  line-height: var(--h1-line-height);
+  color: var(--h1-color);
+  margin-top: var(--h1-margin-top);
+  margin-bottom: var(--h1-margin-bottom);
+  text-transform: var(--h1-text-transform);
+}
+
+h2 {
+  font-family: var(--h2-font-family);
+  font-size: var(--h2-font-size);
+  font-weight: var(--h2-font-weight);
+  line-height: var(--h2-line-height);
+  color: var(--h2-color);
+  margin-top: var(--h2-margin-top);
+  margin-bottom: var(--h2-margin-bottom);
+  text-transform: var(--h2-text-transform);
+  text-align: var(--h2-text-align);
+}
+
+h3 {
+  font-family: var(--h3-font-family);
+  font-size: var(--h3-font-size);
+  font-weight: var(--h3-font-weight);
+  line-height: var(--h3-line-height);
+  color: var(--h3-color);
+  margin-top: var(--h3-margin-top);
+  margin-bottom: var(--h3-margin-bottom);
+  text-transform: var(--h3-text-transform);
+}
+
+
+/* =========================
+   4. NAVBAR
+========================= */
+.nav {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 20px 15px 12px 25px;
+  z-index: 1000;
+  box-shadow: var(--shadow-light);
+  transition: box-shadow 0.3s ease;
+}
+
+/* FLEX LAYOUT */
+.nav-inner {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO !!!!!!!! */
+.logo {
+  display: inline-block;
+  transform-origin: center;
+  will-change: transform; /* Performance Boost */
+}
+
+/* LOGO ANIMATION */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  10%, 30% { transform: scale(1.08); }
+  20%, 40% { transform: scale(1.05); }
+}
+
+.logo-inner {
+  display: inline-block;
+  animation: heartbeat 1.5s infinite;
+  transform-origin: center; /* Drehpunkt in der Mitte */
+  will-change: transform;   /* Performance Boost */
+}
+
+.logo img {
+  height: 25px;
+  width: auto;
+}
+
+/* MENU BUTTON */
+.menu-btn {
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;   
+  justify-content: center;
+}
+
+/* SIDE MENU */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100%;
+  background: white;
+  font-family: 'cabin', sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 20px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+/* ACTIVE STATE */
+.side-menu.active {
+  right: 0;
+}
+
+/* LINKS */
+.side-menu a {
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* =========================
+   5. HERO
+========================= */
+.hero {
+  background: white;
+  padding: 60px 10px 10px 5px;
+  text-align: center;
+}
+
+h1 span {
+  display: block;      /* neue Zeile */
+  font-size: 0.6em;    /* kleiner */
+  font-weight: normal; /* optional */
+  color: #666;
+}
+
+h2 span {
+  display: block;      /* neue Zeile */
+  font-size: 0.6em;    /* kleiner */
+  font-weight: normal; /* optional */
+  color: #666;
+}
+
+/* =========================
+   6. CTA BUTTONS
+========================= */
+
+.cta-buttons,
+.certificates {
+  display: flex;
+  flex-wrap: wrap;       /* WICHTIG: Buttons umbrechen, wenn Platz fehlt */
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.cta-btn,
+.certificate {
+  box-shadow: var(--inner-shadow-light);
+  display: inline-block;
+  background: #E2E8F0;
+  color: #1E1E1E;
+  padding: 12px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Special UX CTA Button Termin buchen */
+#ctaButton {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #F0E3EA;
+  color: #1E1E1E;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  z-index: 999;
+  margin: 0px 110px 0px 0px;
+  box-shadow: var(--shadow-light);
+}
+
+/* Sticky Zustand */
+#ctaButton.sticky {
+  position: fixed !important;
+  top: 70px;          /* Höhe Navbar */
+  left: 20px;
+  border-top: white; /* entfernt die obere Linie */
+  border-radius: 0 0 8px 8px; /* optional: abgerundet unten */
+}
+
+/* =========================
+   7. PARALLAX
+========================= */
+
+/* =========================
+   7. PROFIL
+========================= */
+.profile {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Container Sprechblase*/
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Sprechblase */
+.speech-bubble {
+  position: relative;
+  background: #E2E8F0;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 600px;
+  text-align: center;
+  text-align: justify;
+  box-shadow: var(--inner-shadow-light);
+}
+
+/* Spitze (Tail) */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;          /* unterhalb der Box */
+  left: 45%;
+  transform: translateX(-50%);
+  
+  width: 0;
+  height: 0;
+  
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 15px solid #E2E8F0; /* gleiche Farbe wie Box */
+  box-shadow: var(--inner-shadow-light);
+}
+
+.profile-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.profile-logo {
+  width: 100px;
+  margin-left: 20px;
+}
+
+
+/* =========================
+    Spine 
+========================= */
+
+
+/* Section Layout */
+.spine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Bild Container */
+.spine-image {
+  width: 90px;
+}
+
+@keyframes float-breathe {
+  0% {
+    transform: translateY(0px) scale(1, 1);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.04, 1.07);
+  }
+
+  100% {
+    transform: translateY(0px) scale(1, 1);
+  }
+}
+
+.spine-image img {
+  animation: float-breathe 7s ease-in-out infinite;
+}
+
+/* =========================
+    Services Accordion
+========================= */
+
+/* Accordion Container */
+.accordion {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Header (Clickable) */
+.accordion-header {
+  box-shadow: var(--shadow-light);
+  width: 100%;
+  background: #E2E8F0;
+  border: none;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: center;
+}
+
+/* Content */
+.accordion-content {
+  box-shadow: var(--inner-shadow-light);
+  border-radius: 8px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  padding: 0 10px;
+}
+
+/* Active State */
+.accordion-item.active .accordion-content {
+  max-height: 400px;
+  padding: 10px;
+}
+
+/* Listen */
+.accordion-content ul {
+  padding-left: 20px;
+}
+
+/* =========================
+    Google Bewertungen
+========================= */
+
+.reviews {
+  margin-top: 100px;
+}
+
+.reviews-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.reviews-grid {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 20px; /* Optional, Abstand innen */
+  align-items: flex-start; /* Höhe richtet sich nach Inhalt */
+}
+
+.review {
+  display: inline-block;      /* passt sich Inhalt an */
+  flex: 0 0 auto;             /* Breite hängt vom Text ab */
+  box-sizing: border-box;
+  box-shadow: var(--inner-shadow-light);
+  border-radius: 12px;
+  padding: 15px 20px;
+  max-width: 95%;             /* nicht zu breit auf Mobile */
+  word-wrap: break-word;
+  background: white;
+  transition: all 0.3s ease;
+  height: auto;                 /* Höhe passt sich dem Text an */
+}
+
+.stars {
+  color: #FCBC05; /* typisches Bewertungs-Gelb */
+}
+
+/* Pfeile */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 10;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.next { right: 10px; }
+
+.prev:hover, .next:hover { background: 1E1E1E; }
+
+/* =========================
+    Termin buchen
+========================= */
+.s_s1 {
+  border-radius: 20% !important;
+}
+/* =========================
+    Forschung
+========================= */
+.science-image {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Beide Bilder exakt übereinander */
+.img-base,
+.img-overlay {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Overlay Position */
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  clip-path: inset(100% 100% 0 0); /* unsichtbar unten links */
+  
+  animation: revealDiagonal 10s ease-in-out infinite;
+}
+
+/* Animation diagonal von unten links nach oben rechts */
+@keyframes revealDiagonal {
+  0% {
+    opacity: 0;
+    clip-path: inset(100% 100% 0 0);
+  }
+
+  30% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+
+  70% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+
+  100% {
+    opacity: 0;
+    clip-path: inset(0 100% 100% 0);
+  }
+}
+
+/* =========================
+    Rückerstattung
+========================= */
+
+/* CONTACT */
+.contact {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contact-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* =========================
+   x. FOOTER
+========================= */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* =========================
+   x. RESPONSIVE
+========================= */
+/* =========================
+   Tablet
+========================= */
+@media (min-width: 768px) {
+    :root {
+    --h1-font-size: 2.2rem;
+    --h2-font-size: 1.8rem;
+    --h3-font-size: 1.2rem;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+    .menu-btn {
+    display: none;
+  }
+
+  .side-menu {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    width: auto;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .side-menu a {
+    margin: 0 10px;
+    font-size: 1rem;
+  }
+    .profile-details {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .profile-img {
+    margin-right: 20px;
+  }
+}
+
+
+/* =========================
+  DESKTOP
+========================= */
+@media (min-width: 1024px) {
+  :root {
+    --h1-font-size: 3rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.4rem;
+  }
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+
+  body {
+    max-width: 1100px;
+    margin: auto;
+  }
+}
