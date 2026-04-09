@@ -1,20 +1,26 @@
-/* Beispiel: Schriftfarbe, Größe und Box-Shadow */
-.service {
-  color: #333333;
-  font-size: 1rem;
-  font-weight: 500;
+/* eTermin Boxen: leichter Schatten und keine Ränder */
+li.s.s1,
+div.service,
+div.price,
+div.serviceadd {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important; /* leichter Schatten */
+    border: none !important;                                /* keine Ränder */
+    border-radius: 8px !important;                          /* leicht abgerundete Ecken */
+    background-color: #ffffff !important;                   /* weiße Hintergrundfarbe */
 }
 
-.price {
-  color: #ff9900;
-  font-weight: bold;
+/* Optional: etwas Abstand innen */
+li.s.s1,
+div.service,
+div.price,
+div.serviceadd {
+    padding: 10px !important;
 }
 
-.imgRBToggle svg path.c1Text {
-  stroke: #FFD700; /* Gelbe Farbe für Check */
-}
-
-.divImgService {
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* Textfarbe anpassen, falls nötig */
+div.service,
+div.price,
+div.serviceadd {
+    color: #1E1E1E !important;
+    font-weight: 500 !important;
 }
