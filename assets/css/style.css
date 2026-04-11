@@ -24,7 +24,7 @@ img {
 
 @font-face {
   font-family: 'cabin';
-  src: url('/assets/fonts/cabin-regular.woff2') format('woff2');
+  src: url('/assets/fonts/source-sans-pro.regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -41,13 +41,14 @@ img {
   --color-accent: #f0e3ea;
   --color-light: #f4f4f5;
   --color-shadow: rgba(0,0,0,0.1);
+  --color-box: #f7f7f7;
 
   /* Typografie */
   --font-heading: 'motley', sans-serif;
   --font-body: 'cabin', sans-serif;
   --h1-size: 2.5rem;
   --h2-size: 1.7rem;
-  --h3-size: 0.9rem;
+  --h3-size: 1rem;
   --h1-weight: 900;
   --h2-weight: 700;
   --h3-weight: 600;
@@ -55,6 +56,7 @@ img {
   /* Layout & Abstände */
   --max-width: 1100px;
   --container-padding: 1rem;
+  --text-align: center;
 
   /* Schatten & Effekte */
   --shadow-light: 0 2px 5px var(--color-shadow);
@@ -78,7 +80,9 @@ body {
   max-width: 100%;
 }
 
-p { max-width: 90ch; }
+p { 
+  max-width: 90ch; 
+}
 
 /* =========================
    4. TYPOGRAPHIE
@@ -96,22 +100,25 @@ h1 {
 }
 
 h2 {
-  display: inline-block;          /* sorgt dafür, dass Breite = Textbreite */
-  padding: 0.4em 0.8em;           /* passt sich an Textgröße an */
-  text-transform: uppercase;
+  display: inline-block;
+  width: fit-content;
+  max-width: 90%;
+
+  padding: 0.4em 0.8em;
   text-align: center;
+
   font-family: var(--font-heading);
   font-size: var(--h2-size);
   font-weight: var(--h2-weight);
   color: var(--color-heading);
-  background: #f7f7f7;
-  margin: 1.5rem auto;            /* auto = horizontal mittig */
+
+  background: var(--color-bg);
+
+  margin: 1.3rem auto; /* reicht für Zentrierung */
+  
   box-shadow: var(--shadow-light);
   border-radius: var(--radius);
   transition: all var(--transition-fast);
-  position: relative;
-  left: 50%;                      /* sorgt dafür, dass der Mittelpunkt der Box … */
-  transform: translateX(-50%);    /* … exakt zentriert ist, auch bei variabler Textlänge */
 }
 
 h3 {
@@ -120,6 +127,83 @@ h3 {
   font-weight: var(--h3-weight);
 }
 
+
+/* =========================
+    Coockiebanner
+========================= */
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: min(420px, 90%);
+  background: var(--color-bg);
+
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+
+  box-shadow: 0 4px 12px var(--color-shadow);
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  text-align: center;
+}
+
+.cookie-text {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.cookie-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+button {
+  font-family: var(--font-body);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition-fast);
+  padding: 12px 22px;   /* 👈 größer */
+  min-height: 48px;     /* 👈 sorgt für gleiche Höhe */
+}
+
+/* Buttons */
+.cookie-btn {
+  flex: 1;
+
+  padding: 14px 16px;   /* 👈 größer */
+  min-height: 48px;     /* 👈 sorgt für gleiche Höhe */
+
+  font-size: 0.95rem;   /* 👈 besser lesbar */
+  font-weight: 600;
+
+  border-radius: var(--radius);
+
+  cursor: pointer;
+  transition: var(--transition-fast);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: var(--inner-shadow-light);
+}
+
+.cookie-btn.accept {
+  background: var(--color-heading);
+  color: #fff;
+}
+
+.cookie-btn.decline {
+  background: var(--color-light);
+  color: var(--color-text);
+}
 /* =========================
    5. NAVBAR
 ========================= */
@@ -227,13 +311,23 @@ h1 span, h2 span {
 .cta-btn,
 .certificate {
   display: inline-block;
-  background: var(--color-light);
+  background: var(--color-box);
   color: var(--color-heading);
-  padding: 12px 22px;
+  padding: 8px 18px;
   border-radius: var(--radius);
   text-decoration: none;
   font-weight: 600;
   box-shadow: var(--inner-shadow-light);
+}
+
+.cta-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: #000;
+  transition: stroke 0.3s ease;
+}
+.cta-btn:hover svg {
+  stroke: #1E1E1E; /* dunklere Hoverfarbe */
 }
 
 #ctaButton {
@@ -248,6 +342,7 @@ h1 span, h2 span {
   box-shadow: var(--shadow-light);
   z-index: 998;
   position: relative;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 #ctaButton.sticky {
@@ -257,10 +352,18 @@ h1 span, h2 span {
   border-radius: 0 0 8px 8px;
 }
 
+/* Zustand beim Ausblenden in der Terminbuchen-Section */
+#ctaButton.cta-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+
 /* =========================
    8. PROFIL
 ========================= */
 .profile {
+  text-align: var(--text-align);
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -275,36 +378,27 @@ h1 span, h2 span {
 
 .speech-bubble {
   position: relative;
-  background: var(--color-light);
+  background: var(--color-bg);
   padding: 20px;
   border-radius: 20px;
   max-width: 600px;
   text-align: justify;
- --shadow-light: 0 2px 5px var(--color-shadow);}
-
-.speech-bubble::after {
-  content: "";
-  position: absolute;
-  bottom: -15px;
-  left: 45%;
-  transform: translateX(-50%);
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-top: 15px solid var(--color-light);
+  box-shadow: var(--inner-shadow-light);
 }
 
 .profile-img { width: 100%; object-fit: cover; }
-.profile-logo { width: 100px; margin-left: 20px; }
+.profile-logo { width: 100px; left: 10px; }
 
 /* =========================
-   9. SPINE
+   9. ACCordion Leitsungen
 ========================= */
 .spine {
+  text-align: var(--text-align);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 120px;
 }
 
 .spine-image { width: 90px; }
@@ -316,6 +410,222 @@ h1 span, h2 span {
 
 .spine-image img {
   animation: float-breathe 7s ease-in-out infinite;
+}
+
+/* Accordion Container */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 600px;      /* optional – begrenzt die Gesamtbreite */
+  margin: 0 auto;        /* mittig im Layout */
+  padding: 10px;
+}
+/* Accordion Header */
+.accordion-header {
+  width: 100%;           /* alle Header gleich breit */
+  display: block;
+  text-align: left;
+  padding: 10px 16px;
+  background: var(--color-box);
+  color: var(--color-heading);
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  box-shadow: var(--inner-shadow-light);
+  transition: var(--transition-fast), color var(--transition-fast);
+}
+/* Accordion Content */
+.accordion-content {
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  transition: all var(--transition-fast);
+  box-shadow: var(--inner-shadow-light);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  padding: 0 16px;
+}
+.accordion-item.active .accordion-content {
+  max-height: 400px;
+  padding: 10px 16px;
+}
+
+/* =========================
+   12. Bewertungen
+========================= */
+.reviews {
+  text-align: var(--text-align);
+  margin-top: 100px;
+}
+
+.reviews-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.reviews-grid {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
+  padding: 20px;
+  align-items: flex-start;
+}
+
+.review {
+  flex: 0 0 auto;
+  background: var(--color-bg);
+  box-shadow: var(--inner-shadow-light);
+  border-radius: 12px;
+  padding: 15px 20px;
+  max-width: 95%;
+  word-wrap: break-word;
+}
+
+.stars { color: #fcbc05; }
+
+/* Pfeile */
+.prev, .next {
+  box-shadow: var(--shadow-light);
+  background-color: var(--color-bg);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 20%;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(5px);
+ 
+  color: #1E1E1E;
+
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+/* Position */
+.prev {
+  left: 5px;
+}
+
+.next {
+  right: 5px;
+}
+/* =========================
+   9. Termin buchen 
+========================= */
+.cta {
+  text-align: var(--text-align);
+}
+
+/* =========================
+   Ablauf 
+========================= */
+
+.ablauf-container {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Box */
+.box {
+  max-width: 500px;
+  width: 90%;
+  background: var(--color-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: var(--inner-shadow-light);
+  text-align: left;
+}
+
+/* Pfeil */
+.arrow {
+  font-size: 2rem;
+  color: #1E1E1E;
+  opacity: 0.6;
+}
+/* =========================
+   9. Rückerstattung
+========================= */
+
+.floating-scene {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+/* Layer */
+.floating-scene .floating-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* BEWEGUNG links → rechts (Container) */
+.floating-scene .floating-layer {
+  animation: moveAcross 18s linear infinite;
+}
+
+/* FLOAT (nur Bild) */
+.floating-scene .floating-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 190px;
+
+  display: block;
+
+  animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes moveAcross {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.finance {
+  text-align: var(--text-align);
 }
 
 /* =========================
@@ -349,93 +659,137 @@ h1 span, h2 span {
   70% { opacity: 1; clip-path: inset(0 0 0 0); }
   100% { opacity: 0; clip-path: inset(0 100% 100% 0); }
 }
-
 /* =========================
-   11. ACCORDION
+   Anfahrt
 ========================= */
-/* Accordion Container */
-.accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  max-width: 600px;      /* optional – begrenzt die Gesamtbreite */
-  margin: 0 auto;        /* mittig im Layout */
-  padding: 10px;
-}
-/* Accordion Header */
-.accordion-header {
-  width: 100%;           /* alle Header gleich breit */
-  display: block;
-  text-align: left;
-  padding: 10px 16px;
-  background: var(--color-light);
-  color: var(--color-heading);
-  font-family: var(--font-body);
-  font-weight: 600;
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  box-shadow: var(--inner-shadow-light);
-  transition: background var(--transition-fast), color var(--transition-fast);
-}
-/* Accordion Content */
-.accordion-content {
-  width: 100%;
-  overflow: hidden;
-  max-height: 0;
-  transition: all var(--transition-fast);
-  box-shadow: var(--inner-shadow-light);
-  border-radius: var(--radius);
-  background: var(--color-bg);
-  padding: 0 16px;
-}
-.accordion-item.active .accordion-content {
-  max-height: 400px;
-  padding: 10px 16px;
+.location {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
-/* =========================
-   12. REVIEWS
-========================= */
-.reviews {
-  margin-top: 100px;
-}
-
-.reviews-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.reviews-grid {
-  display: flex;
-  gap: 20px;
-  transition: transform 0.8s cubic-bezier(0.22,1,0.36,1);
-  padding: 20px;
-  align-items: flex-start;
-}
-
-.review {
-  flex: 0 0 auto;
-  background: var(--color-bg);
-  box-shadow: var(--inner-shadow-light);
+.location .map-wrapper {
+  margin-top: 1.5rem;
   border-radius: 12px;
-  padding: 15px 20px;
-  max-width: 95%;
-  word-wrap: break-word;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
 }
 
-.stars { color: #fcbc05; }
+.location iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+}
 
 /* =========================
    13. FOOTER
 ========================= */
-.footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.8rem;
-  color: #64748b;
+/* FOOTER BASE */
+.site-footer {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  padding: 4rem var(--container-padding) 2rem;
+  box-shadow: var(--shadow-light);
 }
+
+/* GRID CONTAINER - MOBILE FIRST */
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* HEADINGS */
+.footer-title {
+  font-family: var(--font-heading);
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+  color: var(--color-heading);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* LINKS */
+.site-footer a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.site-footer a:hover {
+  color: var(--color-heading);
+  text-decoration: underline;
+}
+
+/* LISTS */
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* ADDRESS BLOCK */
+.footer-address {
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-box);
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--inner-shadow-light);
+}
+
+/* CONTACT */
+.footer-contact a {
+  display: block;
+  margin-top: 0.4rem;
+}
+
+/* BOTTOM BAR */
+.footer-bottom {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  opacity: 0.7;
+}
+
+/* Container: nebeneinander */
+.socials {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+/* Buttons klein & modern */
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  padding: 6px;
+}
+
+/* Hover Effekt */
+.social-btn:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+}
+
 
 /* =========================
    14. RESPONSIVE
@@ -479,6 +833,7 @@ h1 span, h2 span {
 
   .science-image { max-width: 600px; }
 }
+
 
 /* Desktop */
 @media (min-width: var(--desktop)) {

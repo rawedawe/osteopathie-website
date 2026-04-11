@@ -43,33 +43,198 @@
   ========================= -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- =========================
-       STRUCTURED DATA (SEO)
+       STRUCTURED DATA (SEO) SCHMEMA
   ========================= -->
-  <script type="application/ld+json">
-  {
-    "@context": "[schema.org](https://schema.org)",
-    "@type": "MedicalBusiness",
-    "name": "Osteopathie Praxis David Lisowski",
-    "image": "[deinewebsite.de](https://www.deinewebsite.de/assets/images/praxis.jpg)",
-    "url": "[deinewebsite.de](https://www.deinewebsite.de)",
-    "telephone": "+49 30 12345678",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Sredzkistraße 67",
-      "addressLocality": "Berlin",
-      "postalCode": "10435",
-      "addressCountry": "DE"
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://www.osteopathie-david-lisowski.de/#medicalbusiness",
+      "name": "Osteopathie David Lisowski",
+      "url": "https://www.osteopathie-david-lisowski.de/",
+      "image": "https://www.osteopathie-david-lisowski.de/assets/images/praxisraum1.jpg",
+      "description": "Osteopathische Praxis in Berlin Prenzlauer Berg mit Schwerpunkt auf HNO-Beschwerden, Tinnitus, Stimmfunktion und funktioneller osteopathischer Behandlung.",
+      "telephone": "+49 157 39053877",
+      "email": "kontakt@osteopathie-david-lisowski.de",
+
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sredzkistraße 67",
+        "postalCode": "10405",
+        "addressLocality": "Berlin",
+        "addressCountry": "DE"
+      },
+
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.5375,
+        "longitude": 13.4200
+      },
+
+      "openingHours": "Mo-Fr 09:00-20:00",
+      "priceRange": "€€",
+
+      "medicalSpecialty": "Osteopathic",
+
+      "areaServed": {
+        "@type": "City",
+        "name": "Berlin"
+      },
+
+      "knowsAbout": [
+        "Osteopathie",
+        "Tinnitus Behandlung",
+        "Hals-Nasen-Ohren Beschwerden",
+        "Stimmfunktion",
+        "Manuelle Therapie",
+        "Funktionelle Medizin"
+      ],
+
+      "sameAs": [
+        "https://www.instagram.com/osteopathiedavidlisowski/",
+        "http://www.linkedin.com/in/osteopathie-david-lisowski",
+
+        "https://www.google.com/maps?cid=14881909575042019418"
+      ],
+
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Osteopathische Leistungen",
+        "itemListElement": [
+
+          {
+            "@type": "Offer",
+            "@id": "https://www.osteopathie-david-lisowski.de/#osteopathie-behandlung",
+            "itemOffered": {
+              "@type": "MedicalTherapy",
+              "name": "Osteopathische Behandlung"
+            }
+          },
+
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalCondition",
+              "name": "HNO Beschwerden (Tinnitus, Schwindel, CMD)"
+            }
+          },
+
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalTherapy",
+              "name": "Stimmfunktion & Stimmwissenschaft"
+            }
+          },
+
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "MedicalObservationalStudy",
+              "name": "Osteo-Data Forschungsprojekt"
+            }
+          }
+        ]
+      },
+
+      "potentialAction": {
+        "@type": "ScheduleAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.etermin.net/davidliso",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "result": {
+          "@type": "Reservation",
+          "name": "Online Terminbuchung"
+        }
+      }
     },
-    "openingHours": "Mo-Fr 09:00-18:00",
-    "priceRange": "€€",
-    "sameAs": [
-      "[instagram.com](https://www.instagram.com/deinprofil)",
-      "[linkedin.com](https://www.linkedin.com/in/deinprofil)"
-    ]
-  }
-  </script>
+
+    {
+      "@type": "Organization",
+      "@id": "https://www.osteopathie-david-lisowski.de/#organization",
+      "name": "Osteopathie David Lisowski",
+      "url": "https://www.osteopathie-david-lisowski.de/",
+      "sameAs": [
+        "https://www.instagram.com/osteopathiedavidlisowski/",
+        "http://www.linkedin.com/in/osteopathie-david-lisowski",
+
+        "https://www.google.com/maps?cid=DEINE_GOOGLE_CID_HIER"
+      ]
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://www.osteopathie-david-lisowski.de/#website",
+      "url": "https://www.osteopathie-david-lisowski.de/",
+      "name": "Osteopathie David Lisowski",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.osteopathie-david-lisowski.de/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.osteopathie-david-lisowski.de/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Übernehmen gesetzliche Krankenkassen osteopathische Behandlungen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Viele gesetzliche Krankenkassen erstatten osteopathische Behandlungen teilweise, meist zwischen 30€ und 60€ pro Sitzung, oft mit ärztlicher Verordnung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Zahlen private Krankenkassen Osteopathie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Private Krankenkassen übernehmen Osteopathie je nach Tarif vollständig oder anteilig nach GebüH."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Werden Zusatzversicherungen für Osteopathie akzeptiert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Viele Zusatzversicherungen erstatten 60 bis 100 Prozent der osteopathischen Behandlungskosten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist das Gesundheitsticket?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Das Gesundheitsticket ermöglicht eine steuerlich geförderte Kostenübernahme osteopathischer Behandlungen durch Arbeitgeber."
+          }
+        }
+      ]
+    }
+
+  ]
+}
+</script>
 </head>
 <body>
+<div id="cookie-banner" class="cookie-banner">
+  <p>
+    Diese Website verwendet externe Dienste (eTermin), die Cookies setzen können.
+  </p>
+  <div class="cookie-actions">
+    <button id="decline-cookies">Ablehnen</button>
+    <button id="accept-cookies">Akzeptieren</button>
+  </div>
+</div>
 <!-- =========================
      HEADER / NAVIGATION
 ========================= -->
@@ -105,23 +270,64 @@
   <section id="hero" class="hero" aria-label="Osteopathie in Berlin Prenzlauer Berg">
     <h1>Osteopathie <span>Berlin Prenzlauer Berg</span></h1>
     <!-- CTA Hauptbutton -->
-    <a href="#kontakt" id="ctaButton" class="cta-btn">Termin buchen</a>
+    <a href="#termin" id="ctaButton" class="cta-btn">Termin buchen</a>
     <!-- CTA Optionen -->
-    <div class="cta-buttons" aria-label="Kontaktmöglichkeiten">
-      <a href="/en/" hreflang="en" class="cta-btn">EN</a>
-      <a href="tel:+4915739053877" class="cta-btn">Anrufen</a>
-      <a href="mailto:kontakt@osteopathie.de" class="cta-btn">Mail</a>
-      <a href="[google.com](https://www.google.com/maps/search/Sredzkistraße+67,+Berlin)"
-         target="_blank" rel="noopener" class="cta-btn">Route</a>
+    <div class="cta-buttons" aria-label="Englische Website Frequently asked Questions und Kontaktmöglichkeiten als Buttons">
+      <a href="/en/index.html" class="cta-btn" aria-label="English version" hreflang="en">EN</a>
+      <a href="/faq/index.html" class="cta-btn" aria-label="FAQ" hreflang="faq">FAQ</a>
+      <a href="tel:+4915739053877" class="cta-btn" aria-label="Anrufen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+          <path fill-rule="evenodd" d="M10 3c-4.31 0-8 3.033-8 7 0 2.024.978 3.825 2.499 5.085a3.478 3.478 0 0 1-.522 1.756.75.75 0 0 0 .584 1.143 5.976 5.976 0 0 0 3.936-1.108c.487.082.99.124 1.503.124 4.31 0 8-3.033 8-7s-3.69-7-8-7Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-2-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
+        </svg>
+      </a>
+      <a href="mailto:kontakt@osteopathie.de" class="cta-btn" aria-label="E-Mail schreiben">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+          <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
+          <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
+        </svg>
+      </a>
+      <a href="sms:+4915739053877" class="cta-btn" aria-label="SMS senden">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+          <path fill-rule="evenodd" d="M12 2.25c-2.429 0-4.817.178-7.152.521C2.87 3.061 1.5 4.795 1.5 6.741v6.018c0 1.946 1.37 3.68 3.348 3.97.877.129 1.761.234 2.652.316V21a.75.75 0 0 0 1.28.53l4.184-4.183a.39.39 0 0 1 .266-.112c2.006-.05 3.982-.22 5.922-.506 1.978-.29 3.348-2.023 3.348-3.97V6.741c0-1.947-1.37-3.68-3.348-3.97A49.145 49.145 0 0 0 12 2.25ZM8.25 8.625a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Zm2.625 1.125a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z" clip-rule="evenodd" />
+        </svg>
+      </a>
+      <a href="#maps" class="cta-btn" aria-label="Zum Standort nach unten scrollen">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+          <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
+        </svg>
+      </a>
+      <a href="#finanzierung" class="cta-btn" aria-label=" Button zu Finanzierung und Rückerstattung">
+        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24"
+            fill="none" stroke="#000" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true">
+          <path d="M17 5.5A8 8 0 1 0 17 18.5"/>
+          <path d="M3 10h10"/>
+          <path d="M3 14h10"/>
+        </svg>
+      </a>
+      <a href="#science" class="cta-btn" aria-label="Buttton zu dem Abschnitt Forschung und Stimmwissenschaft">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+          <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
+          <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
+          <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
+        </svg>
+        <span style="margin-left:6px; font-weight:600;"></span>
+      </a>
     </div>
     <!-- Hero Bild -->
     <div class="hero-image" aria-label="Anatomiebild für den ersten Eindruck">
-      <picture>
-        <source srcset="/assets/images/wirbel-querschnitt.webp" type="image/webp">
-        <img src="/assets/images/wirbel-querschnitt.jpg"
-             alt="Anatomischer Querschnitt eines Wirbels zur Darstellung osteopathischer Prinzipien"
-             width="800" height="600" loading="lazy" decoding="async">
-      </picture>
+    <picture>
+      <source srcset="/assets/images/parietale.webp" type="image/webp">
+      <img 
+        src="/assets/images/parietale.jpg"
+        alt="Illustration der parietalen Osteopathie anhand von Muskeln Gelenken Knochen Bändern Sehnen Durchblutung und Statik"
+        width="800"
+        height="600"
+        loading="lazy"
+        fetchpriority="high"
+        decoding="async"
+      >
     </div>
   </section>
   <!-- =========================
@@ -157,7 +363,7 @@
     </div>
   </section>
 <!-- =========================
-      Leistungen
+      Leistungen Akkordion
 ========================= -->
 <section id="leistungen" class="spine" aria-labelledby="leistungen-heading">
   <!-- Dekoratives Spine-Bild -->
@@ -188,7 +394,7 @@
       </button>
       <div class="accordion-content" itemprop="itemListElement">
         <p itemprop="description">
-          Mit sanften und präzisen osteopathischen Techniken werden Spannungen und Dysfunktionen im Rücken gelöst.
+          Mit sanften und präzisen Mobilisationen werden Spannungen und Dysfunktionen im Rücken gelöst.
         </p>
         <ul>
           <li>Hexenschuss (Lumbago)</li>
@@ -295,11 +501,21 @@
      Google Bewertungen
 ========================= -->
 <section id="bewertungen" class="reviews" aria-label="Google Bewertungen unserer Praxis">
+    <!-- Dekoratives-Bild -->
+  <div class="praxis-image" aria-hidden="true">
+    </picture>
+      <picture>
+        <source srcset="/assets/images/praxisraum2.webp" type="image/webp">
+        <img src="/assets/images/praxisraum2.jpg"
+             alt="Anatomischer Querschnitt eines Wirbels zur Darstellung osteopathischer Prinzipien"
+             width="800" height="600" loading="lazy" decoding="async">
+      </picture>
+  </div>
   <h2>Bewertungen 
     <span>Praxis Prenzlauer Berg</span> 
   </h2>
   <div class="reviews-container">
-    <button class="prev" aria-label="Google Bewertungen"></button>
+    <button class="prev" aria-label="vorherige Bewertung">﹤</button>
     <div class="reviews-grid">
       <!-- Review 1 -->
       <article class="review" itemscope itemtype="https://schema.org/Review">
@@ -591,92 +807,516 @@
       </article>
       <!-- Weitere Reviews hier -->
     </div>
-    <button class="next" aria-label="Nächste Bewertung"></button>
+    <button class="next" aria-label="Nächste Bewertung">﹥</button>
   </div>
 </section>
 <!-- =========================
      Termin buchen 
 ========================= -->
-<section class="cta">
-  <h2>Jetzt Termin vereinbaren</h2>
-  <iframe 
-    id="etifr"
-    src="https://www.eTermin.net/davidliso" 
-    height="1600"
-    width="100%"
-    scrolling="no"
-    frameborder="0">
-  </iframe>
-</section>
- <!-- =========================
-      Stimmforschung 
-========================= -->
-<section>
-    <div class="science-image" aria-label="Werbung für eigene Studie im Bereich Stimmwissenschaft und Osteopathie">
-    
-    <img src="assets/images/stimme.jpg" class="img-base"
-        alt="Querschnitt des Ansatzrohres und Entstehung der Stimmresonanzen"
-        loading="lazy">
-    <img src="assets/images/schall.png" class="img-overlay"
-        alt="Querschnitt des Ansatzrohres und Entstehung der Stimmresonanzen"
-        loading="lazy">
+<section class="cta" id="termin">    
+  <!-- Dekoratives-Bild -->
+  <div class="biomechanik-image" aria-hidden="true">
+    <picture>
+      <source srcset="/assets/images/biomechanik.webp" type="image/webp">
+      <img 
+        src="/assets/images/biomechanik.jpg"
+        alt="Vektorgrafik des menschlichen Skelettes mit Ursachen Folge Ketten anhand von biomechanischen Modellen. 
+        Pfeile die in dysfunktionale Richtungen zeigen."
+        width="800"
+        height="1000"
+        loading="lazy"
+        decoding="async"
+      >
+    </picture>
   </div>
-  <div class="cta-buttons">
-    <h2> Stimm-Forschung</h2>
-    <p> Osteopathische Studie zur "Ring-Stimme" und der Stimmqualität 
-        SPR Messung AVQI ABI Messungen mit Praat 
-        länger angelegte kontrollierte randomisierte Studie. Gesucht werden 
-        Sänger*innen. Bei interesse einfach eine Mail schreiben oder einfach einen
-        Studien-Termin buchen. 
-    </p>
-  <a href="/stimmforschung/index.html" class="cta-btn">
-    Mehr Infos
-  </a>
-  <a href="/faq/index.html" class="cta-btn">
-    Was ist Osteopathie?
-  </a>
+<h2>Hier Termin buchen</h2>
+<div id="booking-container">
+  <p>Die Terminbuchung wird erst nach Zustimmung geladen.</p>
+  <button class="cta-btn" onclick="loadBooking()">
+    Terminbuchung laden
+  </button>
 </div>
+</section>
+<!-- =========================
+     Ablauf
+========================= -->
+<section class="ablauf">
+  <picture class="full-image">
+    <!-- WebP -->
+    <source 
+      srcset="/assets/images/praxisraum1.webp" 
+      type="image/webp"
+    >
+    <!-- JPG Fallback -->
+    <img 
+      src="/assets/images/praxisraum1.jpg"
+      alt="Moderne Osteopathie Praxis in Berlin Prenzlauer Berg Behandlungsraum"
+      loading="lazy"
+      decoding="async"
+      width="1920"
+      height="1080"
+    >
+  </picture>
+  <div class="ablauf-container"> 
+    <h2>Ablauf einer Erstbehandlung
+      <span>ca. 85min
+      </span>
+    </h2>
+    <div class="step">
+      <div class="box">
+        <h3>Anamnese (ca. 10 Minuten)</h3>
+        <p>
+          Zu Beginn besprechen wir Ihre Beschwerden, Vorerkrankungen und Ziele.
+          Die ausführliche Anamnese bildet die Grundlage für eine gezielte osteopathische Behandlung.
+        </p>
+      </div>
+      <div class="arrow">↓</div>
+    </div>
+    <div class="step">
+      <div class="box">
+        <h3>Untersuchung (ca. 15 Minuten)</h3>
+        <p>
+          Durch gezielte manuelle Tests analysiere ich Beweglichkeit,
+          Spannungen und funktionelle Zusammenhänge im Körper.
+        </p>
+      </div>
+      <div class="arrow">↓</div>
+    </div>
+    <div class="step">
+      <div class="box">
+        <h3>Erklärung (ca. 5 Minuten)</h3>
+        <p>
+          Sie erhalten eine verständliche Erklärung anhand von Anatomiesoftware Ihrer Beschwerden
+          sowie die Behanlungsstrategie.
+        </p>
+      </div>
+      <div class="arrow">↓</div>
+    </div>
+    <div class="step">
+      <div class="box">
+        <h3>Behandlung (ca. 25 Minuten)</h3>
+        <p>
+          Die osteopathische Behandlung erfolgt individuell und ganzheitlich,
+          um Spannungen zu lösen und die Selbstheilungskräfte zu aktivieren.
+        </p>
+      </div>
+      <div class="arrow">↓</div>
+    </div>
+    <div class="step">
+      <div class="box">
+        <h3>Übungen & Prognose (ca. 10 Minuten)</h3>
+        <p>
+          Sie erhalten gezielte Übungen für den Alltag sowie eine Einschätzung
+          zum weiteren Verlauf Ihrer Beschwerden.
+        </p>
+      </div>
+      <div class="arrow">↓</div>
+    </div>
+    <div class="step">
+      <div class="box">
+        <h3>Abrechnung & Dokumentation (ca. 10 Minuten)</h3>
+        <p>
+          Abschließend erfolgt die Abrechnung sowie die Dokumentation
+          Ihrer Behandlung für Transparenz und Nachvollziehbarkeit.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- =========================
+     Rückerstattung Akkordeon SEO von den Bildern checken 
+========================= -->
+<section id="finanzierung" class="finance" aria-labelledby="finanzierung-heading">
+    <picture class="full-image">
+    <!-- WebP -->
+    <source 
+      srcset="/assets/images/praxisraum3.webp" 
+      type="image/webp"
+    >
+    <!-- JPG Fallback -->
+    <img 
+      src="/assets/images/praxisraum3.jpg"
+      alt="Moderne Osteopathie Praxis in Berlin Prenzlauer Berg Behandlungsraum"
+      loading="lazy"
+      decoding="async"
+      width="1920"
+      height="1080"
+    >
+  </picture>
+  <h2 id="finanzierung-heading">
+    Rückerstattung und Zahlung
+  </h2>
+  <div class="accordion" itemscope itemtype="[schema.org](https://schema.org/Service)">
+    <!-- Gesetzliche Krankenkassen -->
+    <div class="accordion-item">
+      <button class="accordion-header" aria-expanded="false">
+        <h3>Gesetzliche Krankenkassen</h3>
+      </button>
+      <div class="accordion-content">
+        <p>
+          Viele gesetzliche Krankenkassen übernehmen einen Teil der Kosten osteopathischer Behandlungen, 
+          wenn Sie von einem staatlich anerkannten Heilpraktiker durchgeführt werden. 
+          Die Zuschüsse liegen je nach Kasse meist zwischen <strong>30 € und 60 € pro Sitzung</strong>.
+        </p>
+        <ul>
+          <li>ärztliches Rezept oder Verordnung erforderlich</li>
+          <li>Erstattung nach Einreichung der Rechnung</li>
+          <li>genaue Konditionen variieren je nach Krankenkasse</li>
+        </ul>
+        <a href="[osteokompass.de](https://www.osteokompass.de/de-patienteninfo-krankenkassenliste.html)"
+           target="_blank" rel="noopener" class="cta-btn">
+          Krankenkassenliste öffnen
+        </a>
+      </div>
+    </div>
+    <!-- Private Krankenkassen -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <h3>Private Krankenkassen</h3>
+      </button>
+      <div class="accordion-content">
+        <p>
+          Private Krankenkassen übernehmen in der Regel die Kosten vollständig oder teilweise. 
+          Die Abrechnung erfolgt gemäß der <strong>Gebührenordnung für Heilpraktiker (GebüH)</strong>.
+        </p>
+        <ul>
+          <li>keine ärztliche Verordnung erforderlich</li>
+          <li>Abrechnung nach individuellen Tarifleistungen</li>
+          <li>Rechnung ist erstattungsfähig nach GebüH</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Zusatzversicherungen -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <h3>Private Zusatzversicherungen</h3>
+      </button>
+      <div class="accordion-content">
+        <p>
+          Viele private Zusatzversicherungen für Heilpraktikerleistungen erstatten 
+          <strong>60 % – 100 %</strong> der Behandlungskosten, je nach Tarif.
+        </p>
+        <ul>
+          <li>Tarifleistungen prüfen (Heilpraktiker / Osteopathie)</li>
+          <li>Rechnung bei Zusatzversicherung einreichen</li>
+          <li>kein Rezept erforderlich</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Gesundheitsticket -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <h3>Gesundheitsticket & Arbeitgeberförderung</h3>
+      </button>
+      <div class="accordion-content">
+        <p>
+          Über das <strong>Gesundheitsticket‑System</strong> können Arbeitgeber 
+          osteopathische Behandlungen steuerbegünstigt bezuschussen.  
+          Mitarbeitende erhalten damit einen Gutschein oder eine Kostenübernahme 
+          für Behandlungen in meiner Praxis.
+        </p>
+        <ul>
+          <li>Teilnahme an Gesundheitsticket möglich</li>
+          <li>steuerfreie Arbeitgeberleistung nach § 3 Nr. 34 EStG</li>
+          <li>Behandlungstermine können direkt über das Ticket abgerechnet werden</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Ermäßigung -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <h3>Ermäßigung / Studierende & soziale Tarife</h3>
+      </button>
+      <div class="accordion-content">
+        <p>
+          Für Studierende, Auszubildende und Menschen mit geringem Einkommen 
+          biete ich nach Absprache <strong>ermäßigte Therapiegebühren</strong> an.  
+          Die individuelle Situation kann im persönlichen Gespräch berücksichtigt werden.
+        </p>
+        <ul>
+          <li>nach Vorlage eines gültigen Nachweises</li>
+          <li>Ermäßigung individuell vereinbar</li>
+          <li>Gleichwertige therapeutische Qualität</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Spendenbasis -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <h3>Behandlung auf Spendenbasis</h3>
+      </button>
+      <div class="accordion-content">
+        <p>
+          Niemand soll aus finanziellen Gründen auf eine Behandlung verzichten müssen.  
+          In besonderen Situationen sind Behandlungen auf <strong>Spendenbasis</strong> möglich.  
+          Dabei zahlen Sie, was Ihnen möglich ist – anonym und respektvoll.
+        </p>
+        <ul>
+          <li>Vertraulichkeit und Gleichbehandlung gewährleistet</li>
+          <li>therapeutische Qualität bleibt identisch</li>
+          <li>nach vorheriger Absprache telefonisch oder per E‑Mail</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Selbstzahler -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <h3>Selbstzahler & Therapieumfang</h3>
+      </button>
+      <div class="accordion-content">
+        <p>
+          Selbstzahler zahlen pro osteopathischer Sitzung zwischen <strong>80 € – 100 €</strong>,
+          abhängig vom Zeitaufwand und der Komplexität des Befundes.
+        </p>
+        <p>
+          Eine Erstbehandlung dauert ca. 50–60 Minuten, inklusive Anamnese, Befundung 
+          und Behandlung. Folgebehandlungen etwa 40–50 Minuten.
+        </p>
+      </div>
+    </div>
+    <!-- Rechnungsstellung -->
+    <div class="accordion-item">
+      <button class="accordion-header">
+        <h3>Rechnungsstellung & Zahlung</h3>
+      </button>
+      <div class="accordion-content">
+        <p>
+          Die Rechnungsstellung erfolgt nach der <strong>GebüH</strong>.  
+          Sie erhalten Ihre Rechnung als PDF oder auf Wunsch in Papierform.
+          Zahlung bitte per Überweisung innerhalb von 14 Tagen.
+        </p>
+        <ul>
+          <li>Rechnungen sind förderfähig für Kostenerstattung</li>
+          <li>auch steuerlich absetzbar als außergewöhnliche Belastung</li>
+          <li>elektronische oder Papier‑Rechnung möglich</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =========================
+    Wisschenschafltiche Projekte
+========================= -->
+<section class="science-section" id="science">
+    <picture>
+      <source srcset="/assets/images/stimme.webp" type="image/webp">
+      <img 
+        src="/assets/images/stimme.jpg"
+        alt="Anatomische Illustration die den sagittal Schnitt der menschlichen Stimme und des Ansatzrohres zeigt."
+        width="800"
+        height="1000"
+        loading="lazy"
+        decoding="async"
+      >
+    </picture>
+  <h2>wissenschaftliche projekte</h2>
+  <div class="grid">
+    <div class="box">
+      <h3>Stimmwissenschaft</h3>
+      <p>
+        Durchführung einer randomisierten kontrollierten Studie. Dafür suche ich Menschen die gerne Sprechen und/oder Singen. 
+        Forschung im Bereich der menschlichen Stimme im Kontext der Resonanzentstehung und des osteopathischen einflusses auf die Gesichtsknochen.
+        Buchen Sie gerne online Termine oder melden Sie sich bei mir. Mehr details gibt es auf meiner Info Seite.   
+      </p>
+    </div>
+    <div class="box">
+      <h3>osteo-data</h3>
+      <p>
+        ist ein Open-Source-Projekt zur strukturierten Dokumentation osteopathischer
+        Patientendaten. Ziel ist es mehr zu Dokumentieren und die Daten anonymisiert für
+        statistische Auswertungen bereitzustellen. Ein Big Data Ansatz zur Erkenntnisgewinnung. 
+        Hier gehts zur Seite.   
+      </p>
+    </div>
+  </div>
 </section>
 <!-- =========================
     Kontakt und Anfahrt
 ========================= -->
-<section id="kontakt" class="contact">
-  <h2>Kontakt</h2>
+<section class="floating-scene">
+  <div class="floating-layer">
+    <img class="floating-image" src="/assets/images/schädel-wirbelsäule.webp" alt="Osteopathie Illustration schwebend">
+  </div>
+</section>
+<section class="location" id="maps" itemscope itemtype="https://schema.org/Physician">
+
+  <h2> Anfahrt <span>
+    Osteopathie Berlin Prenzlauer Berg  
+  </span></h2>
+
+  <!-- SEO Text -->
+  <p>
+    Unsere osteopathische Praxis befindet sich zentral in <strong>Berlin Prenzlauer Berg</strong> und ist gut mit öffentlichen Verkehrsmitteln erreichbar.
+  </p>
+
+  <!-- NAP Daten (SEO extrem wichtig) -->
+  <div class="address" itemscope itemtype="https://schema.org/PostalAddress">
+    <p>
+      <span itemprop="streetAddress">Sredzkistraße 67</span>, 
+      <span itemprop="postalCode">10405</span> 
+      <span itemprop="addressLocality">Berlin</span>
+    </p>
+  </div>
+
+  <p>
+    📍 
+    <a href="https://www.google.com/maps?q=52.5402,13.4215" target="_blank" rel="noopener noreferrer">
+      Standort auf Google Maps öffnen
+      
+    </a>
+  </p>
+
+  <!-- MAP (lazy + optional sichtbar) -->
+    <div id="map-container">
+      <button class="cta-btn" onclick="loadMap()">
+        Karte laden
+      </button>
+    </div>
   <div class="contact-box">
     <p>📍 Sredzkistraße 67, Berlin</p>
     <p>📞 +49 157 39053877</p>
     <p>✉ kontakt@osteopathie.de</p>
-    <a href="tel:+4915739053877" class="cta-btn">
-      Jetzt anrufen
-    </a>
   </div>
 </section>
 </main>
 <!-- =========================
      Footer
 ========================= -->
-<footer class="footer">
-  <a href="https://www.instagram.com/deinprofil" 
-   target="_blank" 
-   rel="noopener noreferrer"
-   aria-label="Instagram Osteopathie Berlin">
-  <img src="/assets/icons/instagram.svg" alt="Instagram Osteopathie Berlin">
-</a>
-<a href="https://www.linkedin.com/in/deinprofil" 
-   target="_blank" 
-   rel="noopener noreferrer"
-   aria-label="LinkedIn Osteopath Berlin">
-  <img src="/assets/icons/linkedin.svg" alt="LinkedIn Osteopath Berlin">
-</a>
-  <p>© 2026 David Lisowski</p>
+<footer class="site-footer" aria-label="Footer Navigation">
+  <div class="footer-container">
+    <!-- Rechtliches -->
+    <div class="footer-col">
+      <h2 class="footer-title">Rechtliches</h2>
+
+      <nav aria-label="Rechtliche Links">
+        <ul>
+          <li><a href="/impressum.html">Impressum</a></li>
+          <li><a href="/datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="/cookies.html">Cookie-Richtlinie</a></li>
+          <li><a href="/sitemap.xml">Sitemap</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Kontakt -->
+    <div class="footer-col">
+      <h2 class="footer-title">Kontakt</h2>
+
+      <address class="footer-address">
+        Osteopathie David Lisowski<br>
+        Sredzkistraße 67<br>
+        10405 Berlin<br>
+      </address>
+      <div class="footer-contact">
+        <a href="tel:+49123456789">+49 123 456789</a><br>
+        <a href="mailto:info@beispiel.de">info@beispiel.de</a>
+      </div>
+    </div>
+    <!-- Social -->
+    <div class="footer-col">
+      <h2 class="footer-title">Social Media</h2>
+      <nav aria-label="Social Media Links">
+        <div class="socials">
+          <a class="social-btn"
+             href="https://www.instagram.com/osteopathiedavidlisowski/"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Instagram Osteopathie Berlin">
+            <img src="/assets/images/instagram.svg"
+                 alt=""
+                 aria-hidden="true">
+          </a>
+          <a class="social-btn"
+             href="http://www.linkedin.com/in/osteopathie-david-lisowski"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="LinkedIn Osteopath Berlin">
+            <img src="/assets/images/linkedin.svg"
+                 alt=""
+                 aria-hidden="true">
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 David Lisowski ☺︎</p>
+  </div>
 </footer>
-<!-- =========================
-     Etermin .js
-========================= -->
-  <script src="https://www.eTermin.net/js/resizecustomersitescroll.min.js"></script>
 <!-- =========================
      Javaskript LOGO animation
 ========================= -->
+<script src="https://www.eTermin.net/js/resizecustomersitescroll.min.js"></script>
+<script>
+const banner = document.getElementById("cookie-banner");
+const acceptBtn = document.getElementById("accept-cookies");
+const declineBtn = document.getElementById("decline-cookies");
+
+const ETEMIN_URL = "https://www.eTermin.net/davidliso";
+
+// Cookie Status prüfen
+const choice = localStorage.getItem("cookieChoice");
+
+// Banner ausblenden wenn schon entschieden
+if (choice && banner) {
+  banner.style.display = "none";
+}
+
+// 👉 WICHTIG: Auto-Load nach Reload wenn akzeptiert
+if (choice === "accepted") {
+  loadBooking();
+}
+
+// AKZEPTIEREN
+acceptBtn?.addEventListener("click", () => {
+  localStorage.setItem("cookieChoice", "accepted");
+
+  if (banner) banner.style.display = "none";
+
+  loadBooking();
+});
+
+// ABLEHNEN
+declineBtn?.addEventListener("click", () => {
+  localStorage.setItem("cookieChoice", "declined");
+
+  if (banner) banner.style.display = "none";
+
+  // nichts laden
+});
+
+// Funktion: iframe dynamisch einfügen
+function loadBooking() {
+  const container = document.getElementById("booking-container");
+
+  if (!container) return;
+
+  container.innerHTML = `
+    <iframe
+      src="${ETEMIN_URL}"
+      width="100%"
+      height="900"
+      style="border:0; border-radius:12px;"
+      scrolling="no"
+      loading="lazy">
+    </iframe>
+  `;
+}
+</script>
+<script>
+function loadMap() {
+  document.getElementById("map-container").innerHTML = `
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2158.185767539987!2d13.420027011701398!3d52.53752233481637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a8533ffddd0643%3A0x606437bb4aef95b5!2sOsteopathie%20Berlin%20-%20David%20Lisowski!5e1!3m2!1sde!2sde!4v1775919009487!5m2!1sde!2sde"
+      width="100%" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen 
+      loading="lazy">
+    </iframe>
+  `;
+}
+</script>
 <script src="/assets/js/script.js" defer></script>
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
@@ -720,11 +1360,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (menuBtn && sideMenu) {
     menuBtn.addEventListener('click', () => {
       sideMenu.classList.toggle('active');
-      // SEO / UX: visuelle Zustände für Screenreader
       const expanded = sideMenu.classList.contains('active');
       menuBtn.setAttribute('aria-expanded', expanded);
     });
-    // Klick außerhalb schließt Menü (Barrierefreiheit + UX)
     document.addEventListener('click', (e) => {
       if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
         sideMenu.classList.remove('active');
@@ -733,34 +1371,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   /* =========================
-     3. STICKY CTA-BUTTON
+     3. STICKY CTA-BUTTON + Sichtbarkeitssteuerung
   ========================== */
   const button = document.getElementById('ctaButton');
-  if (button && nav) {
-    let isSticky = false;
-    const buttonStart = button.offsetTop;
-    const buttonMarginTop = parseFloat(getComputedStyle(button).marginTop);
-    const spacer = document.createElement('div');
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const navHeight = nav.offsetHeight;
-      // Sticky aktivieren
-      if (!isSticky && scrollY + navHeight >= buttonStart - buttonMarginTop) {
-        isSticky = true;
-        spacer.style.height = button.offsetHeight + buttonMarginTop + 'px';
-        button.parentNode.insertBefore(spacer, button);
-        button.classList.add('sticky');
-        button.style.top = navHeight + buttonMarginTop + 'px';
-      }
-      // Sticky deaktivieren
-      if (isSticky && scrollY + navHeight < buttonStart - buttonMarginTop) {
-        isSticky = false;
-        spacer.remove();
-        button.classList.remove('sticky');
-        button.style.top = '';
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+  const terminSection = document.querySelector('.cta'); // CSS-Klasse der "Termin buchen"-Section
+  if (!button || !nav) return;
+  // --- Sticky Verhalten ---
+  let isSticky = false;
+  const buttonStart = button.offsetTop;
+  const buttonMarginTop = parseFloat(getComputedStyle(button).marginTop);
+  const spacer = document.createElement('div');
+  const handleSticky = () => {
+    const scrollY = window.scrollY;
+    const navHeight = nav.offsetHeight;
+    if (!isSticky && scrollY + navHeight >= buttonStart - buttonMarginTop) {
+      isSticky = true;
+      spacer.style.height = button.offsetHeight + buttonMarginTop + 'px';
+      if (!spacer.parentNode) button.parentNode.insertBefore(spacer, button);
+      button.classList.add('sticky');
+      button.style.position = 'fixed';
+      button.style.top = navHeight + buttonMarginTop + 'px';
+      button.style.zIndex = '999';
+    }
+    if (isSticky && scrollY + navHeight < buttonStart - buttonMarginTop) {
+      isSticky = false;
+      if (spacer.parentNode) spacer.remove();
+      button.classList.remove('sticky');
+      button.style.position = '';
+      button.style.top = '';
+      button.style.zIndex = '';
+    }
+  };
+  window.addEventListener('scroll', handleSticky, { passive: true });
+  handleSticky(); // sofort prüfen
+  // --- Sichtbarkeit im Terminbereich ---
+  if (terminSection) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Terminbereich sichtbar -> ausblenden
+            button.classList.add('cta-hidden');
+            button.setAttribute('aria-hidden', 'true');
+          } else {
+            // außerhalb -> einblenden
+            button.classList.remove('cta-hidden');
+            button.removeAttribute('aria-hidden');
+          }
+        });
+      },
+      { threshold: 0.25 } // ab 25 % Sichtbarkeit reagiert er
+    );
+    observer.observe(terminSection);
   }
 });
 </script>

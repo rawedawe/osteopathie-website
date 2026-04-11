@@ -1,0 +1,17 @@
+# Alles darf gecrawlt werden
+Allow: /
+
+# Wichtige Seiten nicht blockieren
+Allow: /impressum.html
+Allow: /datenschutz.html
+Allow: /cookies.html
+
+# Deine Fachseiten
+Allow: /englisch/
+Allow: /bandscheibenvorfall/
+Allow: /stimmforschung/
+Allow: /tinnitus/
+Allow: /osteodata/
+
+# Sitemap
+Sitemap: https://www.osteopathie-david-lisowski.de/sitemap.xml

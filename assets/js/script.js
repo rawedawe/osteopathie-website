@@ -4,11 +4,9 @@ document.querySelectorAll(".accordion-header").forEach(button => {
     const item = button.parentElement;
     const isActive = item.classList.contains("active");
 
-    // alle schließen
     document.querySelectorAll(".accordion-item")
       .forEach(i => i.classList.remove("active"));
 
-    // nur öffnen wenn vorher geschlossen
     if (!isActive) {
       item.classList.add("active");
     }
@@ -33,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function showSlide(i) {
-    const slideWidth = reviews[0].offsetWidth + 20; // inkl. Gap
+    const slideWidth = reviews[0].offsetWidth + 20;
     container.style.transform = `translateX(${-i * slideWidth}px)`;
   }
 
@@ -58,6 +56,66 @@ document.addEventListener("DOMContentLoaded", () => {
   updateSlidesToShow();
   showSlide(index);
 
-  // Autoplay alle 5 Sekunden
   setInterval(nextSlide, 9000);
+
+  // 🔥 NEU: Scroll Animation für Bild
+ const image = document.querySelector(".ablauf .image-wrapper");
+
+if (image) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        image.classList.add("active");
+      } else {
+        image.classList.remove("active"); // 🔥 reset wenn raus
+      }
+
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(image);
+}
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const map = document.querySelector(".lazy-map");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        map.src = map.dataset.src;
+        observer.unobserve(map);
+      }
+    });
+  });
+
+  if (map) observer.observe(map);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".gallery-grid");
+  const items = document.querySelectorAll(".gallery-item");
+  const prev = document.querySelector(".gallery-prev");
+  const next = document.querySelector(".gallery-next");
+
+  let index = 0;
+
+  function showSlide(i) {
+    const width = items[0].offsetWidth + 20;
+    container.style.transform = `translateX(${-i * width}px)`;
+  }
+
+  next.addEventListener("click", () => {
+    index = (index + 1) % items.length;
+    showSlide(index);
+  });
+
+  prev.addEventListener("click", () => {
+    index = (index - 1 + items.length) % items.length;
+    showSlide(index);
+  });
+
+  showSlide(index);
 });
