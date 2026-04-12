@@ -7,11 +7,6 @@
   box-sizing: border-box;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
-
 /* =========================
    2. FONTS
 ========================= */
@@ -66,9 +61,6 @@ img {
   --radius: 8px;
   --transition-fast: 0.3s ease;
 
-  /* Breakpoints */
-  --tablet: 768px;
-  --desktop: 1024px;
 }
 
 body {
@@ -83,6 +75,30 @@ body {
 p { 
   max-width: 90ch; 
 }
+
+/* =========================
+   Images
+========================= */
+
+/* ===== BASE (Mobile First) ===== */
+img,
+picture img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+.spine-image img {
+  max-width: 90px;
+  margin: 0 auto;
+}
+
+  .finance picture img,
+  .reviews img,
+  .ablauf-picture img {
+    margin-top: 50px;
+  }
 
 /* =========================
    4. TYPOGRAPHIE
@@ -280,9 +296,88 @@ button {
   color: var(--color-text);
 }
 
+.nav-menu {
+  display: none;
+}
+
+
+/* Dropdown*/
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Untermenü */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  background: var(--color-bg);
+  box-shadow: var(--shadow-light);
+  border-radius: var(--radius);
+
+  min-width: 200px;
+  padding: 10px 0;
+
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+}
+
+/* Links im Dropdown */
+.dropdown-menu a {
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: var(--color-light);
+}
+
+/* Hover Desktop */
+.nav-dropdown:hover .dropdown-menu {
+  display: flex;
+}
+/* =========================
+   FIXED CTA BUTTON
+========================= */
+
+.cta-fixed {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Styling (nur Optik, nicht Position!) */
+.cta-fixed .cta-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: var(--color-accent);
+  color: var(--color-heading);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-light);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* verstecken in Termin Section */
+.cta-hidden {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.95);
+  pointer-events: none;
+}
 /* =========================
    6. HERO
 ========================= */
+
 .hero {
   background: var(--color-bg);
   padding: 60px 10px 10px;
@@ -326,38 +421,7 @@ h1 span, h2 span {
   stroke: #000;
   transition: stroke 0.3s ease;
 }
-.cta-btn:hover svg {
-  stroke: #1E1E1E; /* dunklere Hoverfarbe */
-}
 
-#ctaButton {
-  display: inline-block;
-  padding: 12px 22px;
-  background: var(--color-accent);
-  color: var(--color-heading);
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: var(--transition-fast);
-  margin-right: 110px;
-  box-shadow: var(--shadow-light);
-  z-index: 998;
-  position: relative;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-#ctaButton.sticky {
-  position: fixed !important;
-  top: 70px;
-  left: 20px;
-  border-radius: 0 0 8px 8px;
-}
-
-/* Zustand beim Ausblenden in der Terminbuchen-Section */
-#ctaButton.cta-hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.95);
-}
 
 /* =========================
    8. PROFIL
@@ -386,11 +450,11 @@ h1 span, h2 span {
   box-shadow: var(--inner-shadow-light);
 }
 
-.profile-img { width: 100%; object-fit: cover; }
+
 .profile-logo { width: 100px; left: 10px; }
 
 /* =========================
-   9. ACCordion Leitsungen
+   9. Acordion Leitsungen und Finanzierung
 ========================= */
 .spine {
   text-align: var(--text-align);
@@ -400,8 +464,6 @@ h1 span, h2 span {
   text-align: center;
   margin-top: 120px;
 }
-
-.spine-image { width: 90px; }
 
 @keyframes float-breathe {
   0%, 100% { transform: translateY(0) scale(1); }
@@ -440,6 +502,7 @@ h1 span, h2 span {
 }
 /* Accordion Content */
 .accordion-content {
+  text-align: left;
   width: 100%;
   overflow: hidden;
   max-height: 0;
@@ -526,6 +589,11 @@ h1 span, h2 span {
   text-align: var(--text-align);
 }
 
+#booking-container p {
+  padding: 30px 15px;
+  text-align: center;
+  margin: 0 auto;
+}
 /* =========================
    Ablauf 
 ========================= */
@@ -560,8 +628,54 @@ h1 span, h2 span {
   color: #1E1E1E;
   opacity: 0.6;
 }
+
 /* =========================
-   9. Rückerstattung
+   Wissenschaftliche Projekte
+========================= */
+
+.science-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.science-grid {
+  padding: 15px;
+}
+
+.science-box {
+  background: var(--color-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: var(--inner-shadow-light);
+  text-align: left;
+  margin-top: 40px;
+  position: relative;
+}
+
+/* Header (Titel + Button nebeneinander) */
+.science-header {
+  display: flex;
+  align-items: center;        /* gleiche Höhe */
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* optional: Button Größe */
+.science-header .btn {
+  width: 60px;
+  height: 60px;
+}
+
+.science-header .btn img {
+  width: 100%;
+  height: auto;
+}
+
+/* =========================
+   Anfahrt animation
 ========================= */
 
 .floating-scene {
@@ -628,37 +742,7 @@ h1 span, h2 span {
   text-align: var(--text-align);
 }
 
-/* =========================
-   10. RESEARCH – Stimme & Schall
-========================= */
-.science-image {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-}
 
-.img-base,
-.img-overlay {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.img-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  clip-path: inset(100% 100% 0 0);
-  animation: revealDiagonal 10s ease-in-out infinite;
-}
-
-@keyframes revealDiagonal {
-  0% { opacity: 0; clip-path: inset(100% 100% 0 0); }
-  30% { opacity: 1; clip-path: inset(0 0 0 0); }
-  70% { opacity: 1; clip-path: inset(0 0 0 0); }
-  100% { opacity: 0; clip-path: inset(0 100% 100% 0); }
-}
 /* =========================
    Anfahrt
 ========================= */
@@ -796,31 +880,14 @@ h1 span, h2 span {
 ========================= */
 
 /* Tablet */
-@media (min-width: var(--tablet)) {
-  :root {
+@media (min-width: 768px) {
+    :root {
     --h1-size: 2.5rem;
     --h2-size: 1.8rem;
     --h3-size: 1.2rem;
   }
   
   h2 { padding: 0.5em 1em; font-size: 1.8rem; }
-  .nav .menu-btn { display: none; }
-
-  .side-menu {
-    position: static;
-    flex-direction: row;
-    height: auto;
-    width: auto;
-    padding: 0;
-    justify-content: flex-end;
-  }
-
-  .side-menu a {
-    margin: 0 10px;
-    font-size: 1rem;
-  }
-
-  .hero { padding: 80px 20px 30px; }
 
   .profile-details {
     flex-direction: row;
@@ -829,33 +896,188 @@ h1 span, h2 span {
 
   .speech-bubble { max-width: 500px; }
 
-  .reviews-grid { gap: 30px; }
-
-  .science-image { max-width: 600px; }
 }
 
+/* =========================
+   DESKTOP (≥1024px)
+========================= */
+@media (min-width: 1024px) {
 
-/* Desktop */
-@media (min-width: var(--desktop)) {
-  :root {
-    --h1-size: 3rem;
-    --h2-size: 2rem;
-    --h3-size: 1.4rem;
+  /* ===== TYPO ===== */
+  h1 {
+    padding: 0.6em 1.2em;
+    font-size: 4rem;
   }
-  h2 { padding: 0.6em 1.2em; font-size: 2rem; }
 
+  h2 {
+    padding: 0.6em 1.2em;
+    font-size: 2.5rem;
+  }
+
+   h3 {
+    padding: 0.6em 1.2em;
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  a {
+    font-size: 1rem;
+  }
+
+  /* ===== LAYOUT ===== */
   body {
     max-width: var(--max-width);
     margin: 0 auto;
   }
 
-  .hero { padding: 100px 20px; }
+  #main-content {
+    max-width: 1200px;
+    box-shadow: var(--inner-shadow-light);
+    border-radius: 8;
+    padding: 30px;
+  }
 
-  .review { max-width: 45%; }
+   /* Mobile Menü deaktivieren */
+  .menu-btn {
+    display: none;
+  }
 
-  .profile-details { align-items: flex-start; }
+  /* Mobile Side Menu aus */
+  .side-menu {
+    display: none;
+  }
 
-  .science-image { max-width: 700px; }
+  .nav {
+    margin-top: 20px;
+    border-radius: var(--radius);
+  }
 
-  .accordion-content { max-height: 500px; }
+  /* Header Layout */
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 25px;
+  }
+
+  /* DESKTOP MENU sichtbar */
+  .nav-menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .nav-menu a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1rem;
+  }
+
+  .nav-menu a:hover {
+    color: var(--color-heading);
+  }
+
+  /* LOGO rechts mittig */
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+/* Hero */
+  .hero {
+  }
+
+  .hero-box {
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertikal */
+  }
+
+  .hero-image {
+    max-width: 300px; /* vorher 45% → sauberer */
+    object-fit: cover;
+    margin-left: 50px;
+  }
+
+   /* Profil */
+  .profile {
+    margin-top: 130px; 
+  }
+
+  .speech-bubble {
+    max-width: 300px; /* vorher 45% → sauberer */
+    object-fit: cover;
+    margin-left: 50px;
+  }
+
+  .profile-details {
+    align-items: flex-start;
+    
+  }
+
+  /* Profilbild */
+  .profile-details picture img {
+    max-width: 450px;
+    object-fit: cover;
+  }
+
+  /* Spine  */
+.spine-image {
+    margin-top: 100px;
+  }
+
+  .spine-image img {
+    max-width: 130px;
+  }
+
+  /* Bewertungen */
+  .review {
+    max-width: 300px; /* vorher 45% → sauberer */
+  }
+
+ /* Termin buchen */
+  .biomechanik-image {
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertikal */
+  }
+
+  .biomechanik-image picture img {
+    max-width: 400px;
+    object-fit: cover;
+  }
+
+  /* Finanzierung */
+  .ablauf-picture img {
+    max-width: 600px;   /* vorher 800px → deutlich kompakter */
+    margin: 0 auto;
+    margin-top: 50px;
+
+  }
+
+ /* Science*/
+
+  .science-section picture img {
+    max-width: 500px; /* kleiner */
+    margin: 0 auto;
+  }
+
+  
+  /* Content Bilder (ALLE gleich behandelt) */
+  .finance picture img,
+  .reviews img {
+    max-width: 600px;   /* vorher 800px → deutlich kompakter */
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+
 }

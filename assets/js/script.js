@@ -1,11 +1,12 @@
 document.querySelectorAll(".accordion-header").forEach(button => {
   button.addEventListener("click", () => {
 
-    const item = button.parentElement;
+    const item = button.closest(".accordion-item");
     const isActive = item.classList.contains("active");
 
-    document.querySelectorAll(".accordion-item")
-      .forEach(i => i.classList.remove("active"));
+    document.querySelectorAll(".accordion-item").forEach(i => {
+      i.classList.remove("active");
+    });
 
     if (!isActive) {
       item.classList.add("active");

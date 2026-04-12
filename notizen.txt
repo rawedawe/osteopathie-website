@@ -39,3 +39,40 @@ Hyypothese osteo einfluss auf die Knochen?
 SEO der Bilder checken webp 
 alt teste ausbessern 
 echte Texte überarbeiten 
+
+
+
+
+  /* =========================
+     1. LOGO-ANIMATION
+  ========================== */
+  const logo = document.getElementById('logo');
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.querySelector('.nav');
+  if (logo && menuBtn && nav) {
+    const startLogoRect = logo.getBoundingClientRect();
+    const startMenuRect = menuBtn.getBoundingClientRect();
+    const navBottom = nav.getBoundingClientRect().bottom;
+    const maxDown = Math.max(navBottom - startLogoRect.bottom - 2, 0);
+    const distanceX = startMenuRect.left - startLogoRect.left - 20;
+    const animateLogo = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = scrollTop / docHeight;
+      let translateX = 0;
+      let translateY = 0;
+      let rotation = 0;
+      if (progress < 0.2) {
+        rotation = -90 * (progress / 0.2);
+      } else if (progress < 0.4) {
+        rotation = -90;
+        translateY = maxDown * ((progress - 0.2) / 0.2);
+      } else {
+        rotation = -90;
+        translateY = maxDown;
+        translateX = distanceX * ((progress - 0.4) / 0.6);
+      }
+      logo.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotation}deg)`;
+    };
+    window.addEventListener('scroll', animateLogo, { passive: true });
+  }

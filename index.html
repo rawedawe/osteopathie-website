@@ -235,30 +235,56 @@
     <button id="accept-cookies">Akzeptieren</button>
   </div>
 </div>
+<div class="cta-fixed">
+  <a href="#termin" id="ctaButton" class="cta-btn">Termin buchen</a>
+</div>
 <!-- =========================
      HEADER / NAVIGATION
 ========================= -->
 <header class="nav" role="banner">
   <div class="nav-inner">
+
     <a href="/" class="logo" id="logo" aria-label="Startseite Osteopathie David Lisowski">
       <span class="logo-inner">
         <img src="assets/images/logo-osteopathie-david-lisowski.svg"
              alt="Logo Osteopathie Praxis David Lisowski Berlin">
       </span>
     </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-menu" aria-label="Desktop Navigation">
+      <a href="#hero">Home</a>
+
+      <!-- DROPDOWN -->
+      <div class="nav-dropdown">
+        <a href="#leistungen" class="nav-parent">Leistungen ▾</a>
+
+        <div class="dropdown-menu">
+          <a href="#leistungen">Beschwerden</a>
+          <a href="/tinnitus/index.html">Tinnitus</a>
+          <a href="/bandscheibenvorwölbung/index.html">Bandscheibenvorwölbung</a>
+        </div>
+      </div>
+      <a href="/faq/">FAQ</a>
+      <a href="/stimmforschung/index.html">Stimm-Studie</a>
+      <a href="/osteo-data/index.html">osteo-data</a>
+      <a href="/en/index.html">EN</a>
+    </nav>
+
     <button class="menu-btn" id="menuBtn" aria-label="Menü öffnen">☰</button>
+
   </div>
 </header>
 <nav class="side-menu" id="sideMenu" aria-label="Hauptnavigation">
   <a href="#hero">Start</a>
   <a href="#leistungen">Leistungen</a>
-  <a href="#praxis">Praxis</a>
+  <a href="/faq/">FAQ</a>
   <a href="/bandscheibenvorfall/">Bandscheibenvorfall</a>
   <a href="/tinnitus/">Tinnitus</a>
-  <a href="/studie-stimme/">Studie Stimme</a>
-  <a href="/faq/">FAQ</a>
-  <a href="/en/index.html">English Version</a>
-  <a href="#kontakt" class="cta-btn">Termin buchen</a>
+  <a href="/studie-stimme/">Stimm-Studie</a>
+  <a href="/osteo-data/index.html">﹤osteo-data﹥</a>
+  <a href="#location">Anfahrt</a>
+  <a href="/en/index.html">EN</a>
 </nav>
 <!-- =========================
      MAIN CONTENT
@@ -269,75 +295,76 @@
   ========================= -->
   <section id="hero" class="hero" aria-label="Osteopathie in Berlin Prenzlauer Berg">
     <h1>Osteopathie <span>Berlin Prenzlauer Berg</span></h1>
-    <!-- CTA Hauptbutton -->
-    <a href="#termin" id="ctaButton" class="cta-btn">Termin buchen</a>
-    <!-- CTA Optionen -->
-    <div class="cta-buttons" aria-label="Englische Website Frequently asked Questions und Kontaktmöglichkeiten als Buttons">
-      <a href="/en/index.html" class="cta-btn" aria-label="English version" hreflang="en">EN</a>
-      <a href="/faq/index.html" class="cta-btn" aria-label="FAQ" hreflang="faq">FAQ</a>
-      <a href="tel:+4915739053877" class="cta-btn" aria-label="Anrufen">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
-          <path fill-rule="evenodd" d="M10 3c-4.31 0-8 3.033-8 7 0 2.024.978 3.825 2.499 5.085a3.478 3.478 0 0 1-.522 1.756.75.75 0 0 0 .584 1.143 5.976 5.976 0 0 0 3.936-1.108c.487.082.99.124 1.503.124 4.31 0 8-3.033 8-7s-3.69-7-8-7Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-2-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
-        </svg>
-      </a>
-      <a href="mailto:kontakt@osteopathie.de" class="cta-btn" aria-label="E-Mail schreiben">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
-          <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
-          <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
-        </svg>
-      </a>
-      <a href="sms:+4915739053877" class="cta-btn" aria-label="SMS senden">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-          <path fill-rule="evenodd" d="M12 2.25c-2.429 0-4.817.178-7.152.521C2.87 3.061 1.5 4.795 1.5 6.741v6.018c0 1.946 1.37 3.68 3.348 3.97.877.129 1.761.234 2.652.316V21a.75.75 0 0 0 1.28.53l4.184-4.183a.39.39 0 0 1 .266-.112c2.006-.05 3.982-.22 5.922-.506 1.978-.29 3.348-2.023 3.348-3.97V6.741c0-1.947-1.37-3.68-3.348-3.97A49.145 49.145 0 0 0 12 2.25ZM8.25 8.625a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Zm2.625 1.125a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z" clip-rule="evenodd" />
-        </svg>
-      </a>
-      <a href="#maps" class="cta-btn" aria-label="Zum Standort nach unten scrollen">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-          <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
-        </svg>
-      </a>
-      <a href="#finanzierung" class="cta-btn" aria-label=" Button zu Finanzierung und Rückerstattung">
-        <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24"
-            fill="none" stroke="#000" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"
-            aria-hidden="true">
-          <path d="M17 5.5A8 8 0 1 0 17 18.5"/>
-          <path d="M3 10h10"/>
-          <path d="M3 14h10"/>
-        </svg>
-      </a>
-      <a href="#science" class="cta-btn" aria-label="Buttton zu dem Abschnitt Forschung und Stimmwissenschaft">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-          <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
-          <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
-          <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
-        </svg>
-        <span style="margin-left:6px; font-weight:600;"></span>
-      </a>
-    </div>
-    <!-- Hero Bild -->
-    <div class="hero-image" aria-label="Anatomiebild für den ersten Eindruck">
-    <picture>
-      <source srcset="/assets/images/parietale.webp" type="image/webp">
-      <img 
-        src="/assets/images/parietale.jpg"
-        alt="Illustration der parietalen Osteopathie anhand von Muskeln Gelenken Knochen Bändern Sehnen Durchblutung und Statik"
-        width="800"
-        height="600"
-        loading="lazy"
-        fetchpriority="high"
-        decoding="async"
-      >
+    <div class="hero-box"> 
+      <!-- CTA Optionen -->
+      <div class="cta-buttons" aria-label="Englische Website Frequently asked Questions und Kontaktmöglichkeiten als Buttons">
+        <a href="/en/index.html" class="cta-btn" aria-label="English version" hreflang="en">EN</a>
+        <a href="/faq/index.html" class="cta-btn" aria-label="FAQ" hreflang="faq">FAQ</a>
+        <a href="tel:+4915739053877" class="cta-btn" aria-label="Anrufen">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+            <path fill-rule="evenodd" d="M10 3c-4.31 0-8 3.033-8 7 0 2.024.978 3.825 2.499 5.085a3.478 3.478 0 0 1-.522 1.756.75.75 0 0 0 .584 1.143 5.976 5.976 0 0 0 3.936-1.108c.487.082.99.124 1.503.124 4.31 0 8-3.033 8-7s-3.69-7-8-7Zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-2-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="mailto:kontakt@osteopathie.de" class="cta-btn" aria-label="E-Mail schreiben">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+            <path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" />
+            <path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" />
+          </svg>
+        </a>
+        <a href="sms:+4915739053877" class="cta-btn" aria-label="SMS senden">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+            <path fill-rule="evenodd" d="M12 2.25c-2.429 0-4.817.178-7.152.521C2.87 3.061 1.5 4.795 1.5 6.741v6.018c0 1.946 1.37 3.68 3.348 3.97.877.129 1.761.234 2.652.316V21a.75.75 0 0 0 1.28.53l4.184-4.183a.39.39 0 0 1 .266-.112c2.006-.05 3.982-.22 5.922-.506 1.978-.29 3.348-2.023 3.348-3.97V6.741c0-1.947-1.37-3.68-3.348-3.97A49.145 49.145 0 0 0 12 2.25ZM8.25 8.625a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Zm2.625 1.125a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="#maps" class="cta-btn" aria-label="Zum Standort nach unten scrollen">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+            <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="#finanzierung" class="cta-btn" aria-label=" Button zu Finanzierung und Rückerstattung">
+          <svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24"
+              fill="none" stroke="#000" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+            <path d="M17 5.5A8 8 0 1 0 17 18.5"/>
+            <path d="M3 10h10"/>
+            <path d="M3 14h10"/>
+          </svg>
+        </a>
+        <a href="#science" class="cta-btn" aria-label="Buttton zu dem Abschnitt Forschung und Stimmwissenschaft">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+            <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
+            <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
+            <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
+          </svg>
+          <span style="margin-left:6px; font-weight:600;"></span>
+        </a>
+      </div>
+      <!-- Hero Bild -->
+      <div class="hero-image" aria-label="Anatomiebild für den ersten Eindruck">
+        <picture>
+          <source srcset="/assets/images/parietale.webp" type="image/webp">
+          <img 
+            src="/assets/images/parietale.jpg"
+            alt="Illustration ..."
+            width="800"
+            height="600"
+            loading="lazy"
+            fetchpriority="high"
+            decoding="async"
+          >
+        </picture>
+      </div>
     </div>
   </section>
   <!-- =========================
        PROFIL
   ========================= -->
   <section class="profile" id="praxis" aria-label="Praxisprofil Osteopathie Berlin">
-    <img src="/assets/images/logovosd.svg"
+    <div class="profile-details">
+        <img src="/assets/images/logovosd.svg"
          alt="Logo anerkanntes Mitglied im Verband der Osteopathie Schule Deutschland"
          class="profile-logo">
-    <div class="profile-details">
       <div class="speech-bubble">
         <p>
           Herzlich Willkommen in meiner Praxis für Osteopathie in Berlin Prenzlauer Berg!
@@ -400,7 +427,7 @@
           <li>Hexenschuss (Lumbago)</li>
           <li>Diffuser Schmerz im Bereich der Wirbelsäule – HWS, BWS, LWS, ISG</li>
           <li>Nacken- und Kopfschmerzen</li>
-          <li>Ischiassyndrom</li>
+          <li>Ischias</li>
           <li>Bandscheibenvorwölbung</li>
         </ul>
         <a href="/bandscheibenvorfall/" class="cta-btn" aria-label="Mehr Informationen zu Osteopathie bei Bandscheibenvorfall in Berlin">
@@ -503,7 +530,6 @@
 <section id="bewertungen" class="reviews" aria-label="Google Bewertungen unserer Praxis">
     <!-- Dekoratives-Bild -->
   <div class="praxis-image" aria-hidden="true">
-    </picture>
       <picture>
         <source srcset="/assets/images/praxisraum2.webp" type="image/webp">
         <img src="/assets/images/praxisraum2.jpg"
@@ -831,9 +857,9 @@
   </div>
 <h2>Hier Termin buchen</h2>
 <div id="booking-container">
-  <p>Die Terminbuchung wird erst nach Zustimmung geladen.</p>
+    <p>Die Terminbuchung wird erst nach Zustimmung geladen.</p>
   <button class="cta-btn" onclick="loadBooking()">
-    Terminbuchung laden
+    Buchung Laden
   </button>
 </div>
 </section>
@@ -841,7 +867,7 @@
      Ablauf
 ========================= -->
 <section class="ablauf">
-  <picture class="full-image">
+  <picture class="ablauf-picture">
     <!-- WebP -->
     <source 
       srcset="/assets/images/praxisraum1.webp" 
@@ -1111,8 +1137,8 @@
       >
     </picture>
   <h2>wissenschaftliche projekte</h2>
-  <div class="grid">
-    <div class="box">
+  <div class="science-grid">
+    <div class="science-box">
       <h3>Stimmwissenschaft</h3>
       <p>
         Durchführung einer randomisierten kontrollierten Studie. Dafür suche ich Menschen die gerne Sprechen und/oder Singen. 
@@ -1120,8 +1146,18 @@
         Buchen Sie gerne online Termine oder melden Sie sich bei mir. Mehr details gibt es auf meiner Info Seite.   
       </p>
     </div>
-    <div class="box">
-      <h3>osteo-data</h3>
+    <div class="science-box">
+      <div class="science-header">
+        <h3>osteo-data</h3>
+
+        <a class="btn"
+          href="https://www."
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Osteo-Data">
+          <img src="/assets/images/osteo-data.svg" alt="" aria-hidden="true">
+        </a>
+      </div>
       <p>
         ist ein Open-Source-Projekt zur strukturierten Dokumentation osteopathischer
         Patientendaten. Ziel ist es mehr zu Dokumentieren und die Daten anonymisiert für
@@ -1247,6 +1283,7 @@
      Javaskript LOGO animation
 ========================= -->
 <script src="https://www.eTermin.net/js/resizecustomersitescroll.min.js"></script>
+<script src="/assets/js/script.js" defer></script>
 <script>
 const banner = document.getElementById("cookie-banner");
 const acceptBtn = document.getElementById("accept-cookies");
@@ -1317,113 +1354,54 @@ function loadMap() {
   `;
 }
 </script>
-<script src="/assets/js/script.js" defer></script>
 <script defer>
 document.addEventListener('DOMContentLoaded', () => {
+
   /* =========================
-     1. LOGO-ANIMATION
+     BURGER MENU (BLEIBT)
   ========================== */
-  const logo = document.getElementById('logo');
   const menuBtn = document.getElementById('menuBtn');
-  const nav = document.querySelector('.nav');
-  if (logo && menuBtn && nav) {
-    const startLogoRect = logo.getBoundingClientRect();
-    const startMenuRect = menuBtn.getBoundingClientRect();
-    const navBottom = nav.getBoundingClientRect().bottom;
-    const maxDown = Math.max(navBottom - startLogoRect.bottom - 2, 0);
-    const distanceX = startMenuRect.left - startLogoRect.left - 20;
-    const animateLogo = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const progress = scrollTop / docHeight;
-      let translateX = 0;
-      let translateY = 0;
-      let rotation = 0;
-      if (progress < 0.2) {
-        rotation = -90 * (progress / 0.2);
-      } else if (progress < 0.4) {
-        rotation = -90;
-        translateY = maxDown * ((progress - 0.2) / 0.2);
-      } else {
-        rotation = -90;
-        translateY = maxDown;
-        translateX = distanceX * ((progress - 0.4) / 0.6);
-      }
-      logo.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotation}deg)`;
-    };
-    window.addEventListener('scroll', animateLogo, { passive: true });
-  }
-  /* =========================
-     2. BURGER-MENÜ FUNKTION
-  ========================== */
   const sideMenu = document.getElementById('sideMenu');
+
   if (menuBtn && sideMenu) {
     menuBtn.addEventListener('click', () => {
       sideMenu.classList.toggle('active');
-      const expanded = sideMenu.classList.contains('active');
-      menuBtn.setAttribute('aria-expanded', expanded);
     });
+
     document.addEventListener('click', (e) => {
       if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
         sideMenu.classList.remove('active');
-        menuBtn.setAttribute('aria-expanded', 'false');
       }
     });
   }
+
   /* =========================
-     3. STICKY CTA-BUTTON + Sichtbarkeitssteuerung
+     CTA FIXED BUTTON LOGIK
   ========================== */
-  const button = document.getElementById('ctaButton');
-  const terminSection = document.querySelector('.cta'); // CSS-Klasse der "Termin buchen"-Section
-  if (!button || !nav) return;
-  // --- Sticky Verhalten ---
-  let isSticky = false;
-  const buttonStart = button.offsetTop;
-  const buttonMarginTop = parseFloat(getComputedStyle(button).marginTop);
-  const spacer = document.createElement('div');
-  const handleSticky = () => {
-    const scrollY = window.scrollY;
-    const navHeight = nav.offsetHeight;
-    if (!isSticky && scrollY + navHeight >= buttonStart - buttonMarginTop) {
-      isSticky = true;
-      spacer.style.height = button.offsetHeight + buttonMarginTop + 'px';
-      if (!spacer.parentNode) button.parentNode.insertBefore(spacer, button);
-      button.classList.add('sticky');
-      button.style.position = 'fixed';
-      button.style.top = navHeight + buttonMarginTop + 'px';
-      button.style.zIndex = '999';
+
+const cta = document.querySelector(".cta-fixed");
+  const terminSection = document.querySelector("#termin");
+
+  if (!cta || !terminSection) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // In Terminbereich → ausblenden
+          cta.classList.add("cta-hidden");
+        } else {
+          // sonst → anzeigen
+          cta.classList.remove("cta-hidden");
+        }
+      });
+    },
+    {
+      threshold: 0.3
     }
-    if (isSticky && scrollY + navHeight < buttonStart - buttonMarginTop) {
-      isSticky = false;
-      if (spacer.parentNode) spacer.remove();
-      button.classList.remove('sticky');
-      button.style.position = '';
-      button.style.top = '';
-      button.style.zIndex = '';
-    }
-  };
-  window.addEventListener('scroll', handleSticky, { passive: true });
-  handleSticky(); // sofort prüfen
-  // --- Sichtbarkeit im Terminbereich ---
-  if (terminSection) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Terminbereich sichtbar -> ausblenden
-            button.classList.add('cta-hidden');
-            button.setAttribute('aria-hidden', 'true');
-          } else {
-            // außerhalb -> einblenden
-            button.classList.remove('cta-hidden');
-            button.removeAttribute('aria-hidden');
-          }
-        });
-      },
-      { threshold: 0.25 } // ab 25 % Sichtbarkeit reagiert er
-    );
-    observer.observe(terminSection);
-  }
+  );
+
+  observer.observe(terminSection);
 });
 </script>
 </body>
