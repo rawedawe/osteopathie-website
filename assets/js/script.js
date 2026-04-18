@@ -15,6 +15,7 @@ document.querySelectorAll(".accordion-header").forEach(button => {
   });
 });
 
+ // Slide reviews
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".reviews-grid");
   const reviews = document.querySelectorAll(".review");
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(nextSlide, 9000);
 
-  // 🔥 NEU: Scroll Animation für Bild
+  // Skelett Anfahrt animation
  const image = document.querySelector(".ablauf .image-wrapper");
 
 if (image) {
@@ -95,28 +96,3 @@ document.addEventListener("DOMContentLoaded", () => {
   if (map) observer.observe(map);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".gallery-grid");
-  const items = document.querySelectorAll(".gallery-item");
-  const prev = document.querySelector(".gallery-prev");
-  const next = document.querySelector(".gallery-next");
-
-  let index = 0;
-
-  function showSlide(i) {
-    const width = items[0].offsetWidth + 20;
-    container.style.transform = `translateX(${-i * width}px)`;
-  }
-
-  next.addEventListener("click", () => {
-    index = (index + 1) % items.length;
-    showSlide(index);
-  });
-
-  prev.addEventListener("click", () => {
-    index = (index - 1 + items.length) % items.length;
-    showSlide(index);
-  });
-
-  showSlide(index);
-});
