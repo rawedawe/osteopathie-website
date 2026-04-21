@@ -453,6 +453,11 @@ h1 span, h2 span {
 
 .profile-logo { width: 100px; left: 10px; }
 
+.certifikates-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /* =========================
    9. Acordion Leitsungen und Finanzierung
 ========================= */
@@ -515,6 +520,11 @@ h1 span, h2 span {
 .accordion-item.active .accordion-content {
   max-height: 400px;
   padding: 10px 16px;
+}
+
+.spine a {
+  color: #555555;       /* dunkelgrau */
+  text-decoration: underline;
 }
 
 /* =========================
