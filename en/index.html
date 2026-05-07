@@ -77,29 +77,48 @@
 </head>
 <body>
 
-<!-- NAV -->
-<header class="nav">
+<!-- =========================
+     NAVIGATION (GLOBAL)
+========================= -->
+<nav class="nav" role="navigation" aria-label="Hauptnavigation">
   <div class="nav-inner">
-
-    <!-- LOGO -->
-    <a href="/" class="logo">
-      <img src="assets/images/logo-osteopathie-david-lisowski.svg" alt="Osteopathie Logo David Lisowski">
+    <a href="/index.html" class="logo" id="logo" aria-label="Startseite Osteopathie David Lisowski">
+      <span class="logo-inner">
+        <img src="assets/images/logo-osteopathie-david-lisowski.svg"
+             alt="Logo Osteopathie Praxis David Lisowski Berlin">
+      </span>
     </a>
-
-    <!-- MENU BUTTON -->
-    <button class="menu-btn" id="menuBtn">
-      ☰
-    </button>
-
+    <!-- Desktop Navigation -->
+    <div class="nav-menu" aria-label="Desktop Navigation">
+      <a href="/index.html">Home</a>
+      <!-- DROPDOWN -->
+      <div class="nav-dropdown">
+        <a href="#leistungen" class="nav-parent">Leistungen ▾</a>
+        <div class="dropdown-menu">
+          <a href="#leistungen">Beschwerden</a>
+          <a href="/tinnitus/index.html">Tinnitus</a>
+          <a href="/bandscheibenvorwölbung/index.html">Bandscheibenvorwölbung</a>
+        </div>
+      </div>
+      <a href="/faq/">FAQ</a>
+      <a href="/stimmforschung/index.html">Stimm-Studie</a>
+      <a href="/osteo-data/index.html">osteo-data</a>
+      <a href="/en/index.html">EN</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menü öffnen">☰</button>
   </div>
-</header>
-
+</nav>
 <!-- SIDE MENU -->
-<nav class="side-menu" id="sideMenu">
-  <a href="#">Start</a>
-  <a href="#">Leistungen</a>
-  <a href="#">Praxis</a>
-  <a href="#">Kontakt</a>
+<nav class="side-menu" id="sideMenu" aria-label="Mobile Navigation">
+  <a href="/index.html">Start</a>
+  <a href="#leistungen">Leistungen</a>
+  <a href="/faq/">FAQ</a>
+  <a href="/bandscheibenvorfall/">Bandscheibenvorfall</a>
+  <a href="/tinnitus/">Tinnitus</a>
+  <a href="/studie-stimme/">Stimm-Studie</a>
+  <a href="/osteo-data/index.html">﹤osteo-data﹥</a>
+  <a href="#location">Anfahrt</a>
+  <a href="/en/index.html">EN</a>
 </nav>
 
 <!-- HERO -->
