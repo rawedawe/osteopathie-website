@@ -945,8 +945,6 @@ h1 span, h2 span {
 
   #main-content {
     max-width: 1200px;
-    box-shadow: var(--inner-shadow-light);
-    border-radius: 8;
     padding: 30px;
   }
 
